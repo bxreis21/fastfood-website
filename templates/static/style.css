@@ -1,0 +1,38 @@
+.navebar{
+    color:white;
+    text-decoration: none;
+    padding: 10px;
+    margin-top:  0%;
+    font-size: 24px;
+    text-align: right;
+    display: flex;
+    gap: 10px;
+
+
+    
+}
+.buttonHeader{
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-color:white;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+.buttonHeader: :hover{
+border-color: #ECCE39;
+}
+
+a{
+    
+}
+
+body{
+    background-color: black;
+    margin: 0px;
+}
+
+
