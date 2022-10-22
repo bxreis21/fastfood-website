@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
 
 {% block title %} Grelha's | HomePage {% endblock %}
 
 {% block body %}
 
+{% include  'static/parciais/messages.html' %}
+
+<div class="top">
+    <div class="card">
+        <p>Os melhores hamburgueres da região. Venha conhecer nosso restaurante.</p>
+    </div>
+
+    <div class="foto">
+        <img src="{% static 'images/hamb.jpg' %}" alt="hamburguer">
+    </div>
+</div>
 
 
 {% endblock %}

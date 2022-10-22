@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
 
 {% block title %} Grelha's | Login {% endblock %}
 
 {% block body %}
 
+{% include  'static/parciais/messages.html' %}
+
+{% if user.is_authenticated %}
+
+<p style = "color:white;">Você já está logado como: {{ request.user.username|title }}</p>
+<a href="{% url 'index' %}"><button class="buttonHeader">Volte ao menu principal</button></a>
+
+{% else %}
 
 
+<form action="{% url 'login' %}" method="post" >
+    {% csrf_token %}
+    <div>
+        <div class = "forms">
+            <label>Usuário</label>
+            <input type="text" name= 'nome'/>
+        </div>
+    
+        <div class = "forms">
+            <label>Senha</label>
+            <input  type="password" name= 'senha'/>
+        </div>
+        <button type="submit">Entrar</button>
+    </div>
+</form>
+
+
+{% endif %}
 {% endblock %}

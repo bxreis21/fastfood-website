@@ -6,22 +6,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/FuzzyBubbles-Bold.ttf' %}">
+    <link rel="stylesheet" href="{% static 'fonts/FuzzyBubbles-Regular.ttf' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block head %}{% endblock %}
     <title>{% block title %}{%endblock%}</title>
 </head>
 
 <body>
-    <nav>
-        <div class="navebar">
-           <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a>
-           <a href=""><button class="buttonHeader">Galeria</button></a>
-           <a href=""><button class="buttonHeader">Faça seu pedido</button></a>
-           <a href=""><button class="buttonHeader">Fale Conosco</button></a>
-           <a href="{% url 'login' %}"><button class="buttonHeader">Entrar</button></a>
-           <a href="{% url 'register' %}"><button class="buttonHeader">Registre-se</button></a>
+    <nav class="navebar">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                Grelhas's Burguer
+            </a>
         </div>
-    </nav>
 
+
+        <div class="menu">
+            <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a>
+            <a href=""><button class="buttonHeader">Galeria</button></a>
+            <a href=""><button class="buttonHeader">Faça seu pedido</button></a>
+            <a href=""><button class="buttonHeader">Fale Conosco</button></a>
+        </div>
+        
+        <div class="login">
+            {% if request.user.is_authenticated %}
+
+            <span> Olá, {{ request.user.username|title }} |</span>
+            <a href="{% url 'logout' %}"><button class="buttonHeader">Sair</button></a>
+
+            {% else %}
+
+            <a href="{% url 'login' %}"><button class="buttonHeader">Entrar</button></a>
+            <a href="{% url 'register' %}"><button class="buttonHeader">Registre-se</button></a>
+
+            {% endif %}
+        </div>     
+    </nav>
     {% block body %}{%endblock%}
 </body>
 </html>

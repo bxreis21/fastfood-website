@@ -1,33 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'register.css' %}">
+{% endblock %}
 
 {% block title %} Grelha's | Registro {% endblock %}
 
 {% block body %}
 
+{% include  'static/parciais/messages.html' %}
+
+{% if user.is_authenticated %}
+
+<p style = "color:white;">Você já está logado como: {{ request.user.username|title }}</p>
+<a href="{% url 'index' %}"><button class="buttonHeader">Volte ao menu principal</button></a>
+
+{% else %}
+
 <form action="{% url 'register' %}" method="post" >
     {% csrf_token %}
-    <div class = "register">
-        <div>
-            <input type="text" name= 'nome'/>
+    <div>
+        <div class = "forms">
             <label>Nome</label>
+            <input type="text" name= 'nome'/>
         </div>
     
-        <div>
-            <input type="text" name= 'email'/>
+        <div class = "forms">
             <label>Email</label>
+            <input  type="email" name= 'email'/>
         </div>
     
-        <div>
-            <input type="text" name= 'senha'/>
+        <div class = "forms">
             <label>Senha</label>
+            <input  type="password" name= 'senha'/>
+        </div>
+
+        <div class = "forms">
+            <label>Confirme sua Senha</label>
+            <input  type="password" name= 'senha2'/>
         </div>
     
-        <div>
-            <input type="text" name= 'telefone'/>
+        <div class = "forms">
             <label>Telefone</label>
+            <input  type="number" name= 'telefone'/>
         </div>
         <button type="submit">Criar conta</button>
     </div>
 </form>
 
+{% endif %}
 {% endblock %}

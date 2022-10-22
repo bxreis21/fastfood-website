@@ -1,0 +1,121 @@
+/* --------------------------- NAVBAR ----------------------------- */
+
+
+body{
+    background-color: rgb(44, 44, 44);
+    margin: 0px;
+}
+
+.navebar{
+    display: flex;
+    gap: 10px;
+    background: #222222;
+    color:#ECCE39;
+    font-size: 24px; 
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo {
+    font-family: 'Fuzzy Bubbles', cursive;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    border-right: solid #ECCE39;
+    justify-content: center;
+}
+
+.logo a {
+    width: 90%;
+    text-decoration: none;
+    text-align: center;
+    color:#ECCE39;
+    font-size: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 10;
+    align-items: center;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.login{
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 5px;
+}
+
+
+.buttonHeader{
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    background-color: transparent;
+    border: solid 3px #ECCE39 ;
+    border-radius: 10px;
+    color:  #ECCE39;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.buttonHeader:hover{
+    border-color: rgb(252, 169, 15);
+}
+
+/* ---------------------------  ----------------------------- */
+
+
+.forms {
+    color: white;
+    margin: 30px 20px;
+}
+
+
+
+/* -----------------------MESSAGES TAGS--------------------- */
+
+.ERROR{
+    padding: 20px;
+    background-color: #cf1b0e;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.SUCCESS{
+    padding: 20px;
+    background-color: #12be29;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.INFO{
+    padding: 20px;
+    background-color: #0f89ec;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.WARNING{
+    padding: 20px;
+    background-color: #f7d206;
+    color: white;
+    margin-bottom: 15px;
+}
+
+
