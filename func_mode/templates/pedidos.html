@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load custom_tags static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'static/parciais/head.html' %}
+    <link rel="stylesheet" href="{% static 'func_css/pedidos.css' %}">
+    <title>Pedidos</title>
+{% endblock %}
+
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Principal</button></a>
+    <a href="{% url 'pedidos' %}"><button class="buttonHeader">Pedidos</button></a></li>
+    <a href="{% url 'cardapio_admin' %}"><button class="buttonHeader">Admin. de Cardápio</button></a>    
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% for statu in status %}
+    <div class="pedidos-board">
+        <h1>{{statu.status}}</h1>
+        <!-- <hr> -->
+        <div class="pedidos-content">
+            {% for pedido in pedidos %}
+                {% if pedido.status.status == statu.status %}
+                <div class="pedidos-cards">
+                    <div>
+                        <p>Pedido: {{ pedido.id }}</p>
+                        <p>Cliente: {{pedido.cliente}} </p>
+                        <p>Data: {{pedido.data}} </p>
+                        <p>Detalhes:</p>
+                        <div>{{pedido.detalhes|safe}}</div>
+                    </div>
+                    <div class="pedidos-buttons">
+                        {% if statu.status == 'Pendente' %}
+                        <p><a href="{% url 'cancelar_pedido' pedido.id %}">Cancelar pedido</a> <a href="{% url 'enviado_pedido' pedido.id %}">Pedido Enviado</a></p>
+                        {% else %}
+                        <p><a href="{% url 'tornar_pendente_pedido' pedido.id %}">Desfazer</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %} 
+        </div>   
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

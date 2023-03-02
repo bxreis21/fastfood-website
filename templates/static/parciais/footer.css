@@ -1,0 +1,48 @@
+/* --------------------------- FOOTER ----------------------------- */
+
+footer {
+    font-family: 'Oswald', sans-serif;
+    bottom: 0;
+    width: auto;
+    height: 250px;
+    background-color: #0c0c0cf3;    
+    border-top: solid #ECCE39;
+    color:#ecece9;
+    font-size: 18px; 
+}
+
+.footer-tabela {
+    display: block-inline;
+    margin: 20px 0px;
+    margin-left: 20px;
+    width: 45%;
+    height: 60%;
+}
+
+.footer-tabela th {
+    text-align: start;
+}
+
+.footer-tabela td {
+    height: 30px;
+}
+
+.sub-footer {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+hr {
+    margin:  5px 20px;
+}
+
+.sub-footer span{ 
+    margin: 0px 20px;
+}
+.sub-footer span > a {
+    text-decoration: none;
+    color: inherit;
+    padding-right: 20px;
+}
+

@@ -1,0 +1,73 @@
+.content {
+    background-color: black;
+    min-height: 100%;
+    font-family: 'Oswald', sans-serif;  
+    font-size: 20px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item  {
+    display: flex;
+    padding: 100px 0px 80px 0px;
+    width: 100%;
+    font-size: 0.8em;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #ECCE39;
+    padding: 100px 0px;
+    border-radius: 50px;
+    background-color: rgb(29, 29, 29);
+}
+
+
+.item-card img {
+    width: 500px;
+    height: 400px;
+    border: solid 5px;
+    border-radius: 100px;
+    margin: 0px 80px;
+}
+
+
+.item-info {
+    font-size: 1.5em;
+    margin: 0px 80px;
+}
+
+.item-info button {
+    margin: 0px 20px;
+    background-color: black;
+    color: #ECCE39;
+    border: solid 2px;
+    border-radius: 10px;
+    font-size: 0.8em;
+}
+
+.item-info h1 {
+    margin-top: 0px;
+}
+
+.input_number {
+    background-color: transparent;
+    border: solid 2px #ECCE39;
+    border-radius: 5px;
+    color: #ECCE39;
+    width: 40px;
+    font-size: 0.8em;   
+}
+
+.input_number::-webkit-outer-spin-button,
+.input_number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

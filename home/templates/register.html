@@ -2,52 +2,70 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'register.css' %}">
+<link rel="stylesheet" href="{% static 'home_css/register.css' %}">
 {% endblock %}
 
 {% block title %} Grelha's | Registro {% endblock %}
 
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a>
+    <a href="#galeria"><button class="buttonHeader">Galeria</button></a>
+    <a href="#footer"><button class="buttonHeader">Fale Conosco</button></a>
+    <a href="{% url 'cardapio' %}"><button class="buttonHeader">Faça seu pedido</button></a>
+{% endblock %}
+
 {% block body %}
-
-{% include  'static/parciais/messages.html' %}
-
-{% if user.is_authenticated %}
-
-<p style = "color:white;">Você já está logado como: {{ request.user.username|title }}</p>
-<a href="{% url 'index' %}"><button class="buttonHeader">Volte ao menu principal</button></a>
-
-{% else %}
-
-<form action="{% url 'register' %}" method="post" >
-    {% csrf_token %}
-    <div>
-        <div class = "forms">
-            <label>Nome</label>
-            <input type="text" name= 'nome'/>
-        </div>
     
-        <div class = "forms">
-            <label>Email</label>
-            <input  type="email" name= 'email'/>
-        </div>
-    
-        <div class = "forms">
-            <label>Senha</label>
-            <input  type="password" name= 'senha'/>
-        </div>
+    <div class="register-body">
+        {% if user.is_authenticated %}
+            <div id="logged" class="register-card">
+                <p>Você já está logado como: {{ request.user.first_name|title }}</p>
+                <a href="{% url 'index' %}"><button>Volte ao menu principal</button></a>
+            </div>
+        {% else %}
+            
+            <form action="{% url 'register' %}" method="post" >
+                {% csrf_token %}
+                <div class="register-card">
+                    
+                    
+                    <div class = "forms">
+                        <label>Nome</label>
+                        <input type="text" name= 'nome'/>
+                    </div>
 
-        <div class = "forms">
-            <label>Confirme sua Senha</label>
-            <input  type="password" name= 'senha2'/>
-        </div>
-    
-        <div class = "forms">
-            <label>Telefone</label>
-            <input  type="number" name= 'telefone'/>
-        </div>
-        <button type="submit">Criar conta</button>
+                    <div class = "forms">
+                        <label>Sobrenome</label>
+                        <input type="text" name= 'sobrenome'/>
+                    </div>
+                
+                    <div class = "forms">
+                        <label>Email</label>
+                        <input  type="email" name= 'email'/>
+                    </div>
+
+                    <div class = "forms">
+                        <label>Telefone</label>
+                        <input  type="text" name= 'telefone'/>
+                    </div>
+                
+                    <div class = "forms">
+                        <label>Senha</label>
+                        <input  type="password" name= 'senha'/>
+                    </div>
+
+                    <div class = "forms">
+                        <label>Confirme sua Senha</label>
+                        <input  type="password" name= 'senha2'/>
+                    </div>
+                
+                    <button type="submit">Criar conta</button>
+                    <div>
+                        {% include  'static/parciais/messages.html' %} 
+                    </div>
+                </div>
+            </form>
+        {% endif %}
     </div>
-</form>
 
-{% endif %}
 {% endblock %}

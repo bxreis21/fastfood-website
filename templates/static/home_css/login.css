@@ -1,0 +1,82 @@
+form {
+    font-family: 'Oswald', sans-serif;
+    margin: 0px;
+}
+
+body {
+    background-image: url("../images/login_back.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    gap: 20px;
+    border: solid transparent;
+    border-radius: 20px;
+    background-color: rgba(255,255 , 255, 0.6);
+    backdrop-filter: blur(10px);
+    font-size: 1.6em;   
+}
+
+.login-card p {
+    font-size: 0.8em;
+}
+
+#logged a {
+    text-decoration: none;
+}
+
+.login-card p > a {
+    color: inherit;
+}
+
+.forms label, input, button {
+    color: rgb(34, 34, 34);
+    display: block;
+    text-align: center;
+}
+
+.forms input {
+    width: 200px;
+    height: 20px;
+    border: solid 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: rgba(255,255 , 255, 0.6);;
+}
+
+.login-card button {   
+    cursor: pointer;
+    font-size: 0.6em;
+    color: antiquewhite;
+    padding: 5px 20px;
+    margin: 10px;
+    border: solid 10px transparent;
+    border-radius: 20px;
+    background-color: rgb(34, 34, 34);
+    backdrop-filter: opacity(20px);
+}
+
+.messages {
+    position: absolute;
+    top: 235px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+}

@@ -1,0 +1,82 @@
+body {
+    background: rgb(34, 34, 34);
+    font-family: 'Oswald', sans-serif;
+}
+
+.top {
+    display: grid;
+    grid-template-columns:  50% 50% ;
+    grid-template-rows: 100%;
+    height: 1100px;
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    background-image: url("../images/home_back.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.top-texto {
+    display: flex;
+    align-items: center;
+    font-size: 70px;
+    color: white;
+    padding: 20px;
+    margin-left: 50px;
+}
+
+.card {
+    font-size: 20px;
+    color: #ECCE39;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px;
+    gap: 50px;
+    align-items: center;
+    background-color: #000;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    border: solid 20px transparent;
+    border-radius: 20px;
+    background-color: rgba(29, 29, 29, 0.767);
+    backdrop-filter: blur(100px);
+}
+
+.card_details {
+    width: 400px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.card img{
+    width: 400px;
+    height: 300px;
+    border: solid 5px #ECCE39;
+    border-radius: 70px;
+    margin: 20px;
+}
+
+.galeria button {   
+    cursor: pointer;
+    font-size: 20px;
+    color: #ECCE39;
+    padding: 5px 20px;
+    margin: 10px;
+    border: solid 10px transparent;
+    border-radius: 20px;
+    background-color: rgb(34, 34, 34);
+    backdrop-filter: opacity(20px);
+}
+

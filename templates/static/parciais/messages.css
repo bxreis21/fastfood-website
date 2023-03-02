@@ -1,0 +1,16 @@
+/* -----------------------MESSAGES TAGS--------------------- */
+.ERROR{ 
+    color: red;
+}
+
+.SUCCESS{
+    color: green;
+}
+
+.INFO{
+    color: blue;
+}
+
+.WARNING{
+    color: yellow;
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'cardapio_css/item.css' %}">
+    {% include 'static/parciais/head.html' %}
+    <title>Item</title>
+{% endblock %}
+
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a> 
+    <a href="{% url 'cardapio' %}"><button class="buttonHeader">Cardápio</button></a>
+{% endblock %}
+
+{% block body %}
+    
+    <div class="content">
+        <div class="item">
+            <div class="item-card">
+                {% if item.img %}
+                    <img src="{{ item.img.url }}" alt="Img">
+                {% else %}
+                    <img src="../../media/default.jpg" alt="Img">
+                {% endif %}
+                <div class="item-info">
+                    <h1>{{ item.nome_item }}</h1>
+                    <p>{{ item.descricao }}</p>
+                    <p>{{ item.ingredientes }}</p>
+                    <p>R$ {{ item.preco_item }}</p>
+                    <form action="{% url 'item' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="text" value="{{ request.user }}" name="user" hidden>
+                        <input type="text" value="{{ item }}" name="item" hidden>
+                        <input type="number" min="1" value="1" name="quantidade" class="input_number">
+                        <button type="submit">Adicionar ao carrinho</button>    
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
+    'cardapio.apps.CardapioConfig',
+    'func_mode.apps.FuncModeConfig',
+    'func_mode.templatetags',
 ]
 
 MIDDLEWARE = [
@@ -105,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -119,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR,'templates/static')]
+MEDIA_ROOT = Path.joinpath(BASE_DIR,'media')
+MEDIA_URL = 'media/'
 
 MESSAGE_TAGS = {
     constants.INFO: 'INFO',
@@ -131,3 +136,4 @@ MESSAGE_TAGS = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

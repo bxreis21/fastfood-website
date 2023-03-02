@@ -3,15 +3,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'fonts/FuzzyBubbles-Bold.ttf' %}">
-    <link rel="stylesheet" href="{% static 'fonts/FuzzyBubbles-Regular.ttf' %}">
+    {% include  'static/parciais/head.html' %}
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    
     {% block head %}{% endblock %}
     <title>{% block title %}{%endblock%}</title>
 </head>
@@ -20,32 +14,34 @@
     <nav class="navebar">
         <div class="logo">
             <a href="{% url 'index' %}">
-                Grelhas's Burguer
+                Grelhas Burguer
             </a>
         </div>
-
-
         <div class="menu">
-            <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a>
-            <a href=""><button class="buttonHeader">Galeria</button></a>
-            <a href=""><button class="buttonHeader">Faça seu pedido</button></a>
-            <a href=""><button class="buttonHeader">Fale Conosco</button></a>
+            {% block navlinks %}
+            {% endblock %}
+            {% if permission  %}
+                <a href="{% url 'pedidos' %}"><button class="buttonHeader">Admin</button></a>
+            {% endif %}
         </div>
         
-        <div class="login">
+        <div class="nav-login">
             {% if request.user.is_authenticated %}
 
-            <span> Olá, {{ request.user.username|title }} |</span>
-            <a href="{% url 'logout' %}"><button class="buttonHeader">Sair</button></a>
+                <span> Olá, {{ request.user.first_name|title }} </span>
+                <a href="{% url 'logout' %}"><button class="buttonHeader">Sair</button></a>
 
             {% else %}
 
-            <a href="{% url 'login' %}"><button class="buttonHeader">Entrar</button></a>
-            <a href="{% url 'register' %}"><button class="buttonHeader">Registre-se</button></a>
+                <a href="{% url 'login' %}"><button class="buttonHeader">Entrar</button></a>
+                <a href="{% url 'register' %}"><button class="buttonHeader">Registre-se</button></a>
 
             {% endif %}
         </div>     
     </nav>
+
     {% block body %}{%endblock%}
+
+    {% include 'static/parciais/footer.html' %}
 </body>
 </html>

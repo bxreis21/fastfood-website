@@ -2,24 +2,39 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="{% static 'home_css/home.css' %}">
 {% endblock %}
 
 {% block title %} Grelha's | HomePage {% endblock %}
 
+{% block navlinks %}
+        <a href="#galeria"><button class="buttonHeader">Galeria</button></a>
+        <a href="#footer"><button class="buttonHeader">Fale Conosco</button></a>
+        <a href="{% url 'cardapio' %}"><button class="buttonHeader">Faça seu pedido</button></a>
+{% endblock %}
+
 {% block body %}
-
-{% include  'static/parciais/messages.html' %}
-
-<div class="top">
-    <div class="card">
-        <p>Os melhores hamburgueres da região. Venha conhecer nosso restaurante.</p>
+    <div class="top">
+        <div class="top-texto">
+            <p>Os melhores hamburgueres da região. Venha conhecer nosso restaurante.</p>
+        </div>
     </div>
-
-    <div class="foto">
-        <img src="{% static 'images/hamb.jpg' %}" alt="hamburguer">
+    <div id="galeria" class="galeria">
+        {% for item in itens %}
+            <div class="card">
+                {% if item.img %}
+                    <img src="{{ item.img.url }}" alt="Img">
+                {% else %}
+                    <img src="../../media/default.jpg" alt="Img">
+                {% endif %}
+                <div class="card_details">
+                    <p>{{ item.descricao }}</p>
+                {% if item.ingredientes != '' %}
+                    <p>{{ item.ingredientes }}</p>
+                {% endif %}
+                </div>
+                <a href="{% url 'item' item.id %}"><button>Pedir agora</button></a>
+            </div>
+        {% endfor %}
     </div>
-</div>
-
-
 {% endblock %}

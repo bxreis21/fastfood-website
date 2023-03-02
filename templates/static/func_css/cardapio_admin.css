@@ -1,0 +1,118 @@
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;  
+    font-size: 20px;
+    margin: 0px;
+}
+
+body a {
+    text-decoration: none;
+}
+
+.back { 
+    z-index: 20;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-decoration: underline;
+    margin-left: 10px;
+    background-color: black;
+    color: #ECCE39;
+}
+
+.content {
+    margin: 100px auto; /* margin top min = 73 */
+    width:65%;
+    border:solid transparent 1px ;
+    padding: 50px 45px;
+    border-radius: 50px;
+    background-color: rgba(31, 30, 30, 0.822);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+    color: #ECCE39;
+}
+
+.content hr {
+    background-color: white;
+    margin: 0px;
+    border: solid #ECCE39 1px;
+    border-radius: 200px;
+}
+
+.categoria {
+    width: 1200px;
+}
+.categoria-title h1 {
+    margin-bottom: 0px;  
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    margin: 50px 0px;
+}
+
+
+.item_img img{
+    margin: 0px 20px;
+    border: solid #ECCE39 2px;
+    border-radius: 20px;
+    height: 250px;
+    width: 350px;
+}
+
+.item_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.item_content a {
+    font-size: 1.2em;
+    text-decoration:underline ;
+    color: #ECCE39;
+}
+
+.item_content_details {
+    font-size: 23px;
+}
+
+.novo_item {
+    display: flex;
+    justify-content: center;
+}
+
+.button_novo_item { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 0.9em;
+    color: #ECCE39;
+    padding: 5px 20px;
+    margin: 10px;
+    border: solid 10px transparent;
+    border-radius: 20px;
+    background-color: rgb(34, 34, 34);
+    backdrop-filter: opacity(20px);
+}
+
+.button_novo_item:hover { 
+    cursor: pointer;
+}
+
+.button_novo_item { 
+    font-size: 1.2em;
+    color: #ECCE39;
+    padding: 5px 20px;
+    margin: 10px;
+    border: solid 10px transparent;
+    border-radius: 20px;
+    background-color: rgb(34, 34, 34);
+    backdrop-filter: opacity(20px);
+}
+
+.button_novo_item:hover { 
+    cursor: pointer;
+}
+

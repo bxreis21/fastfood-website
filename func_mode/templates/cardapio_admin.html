@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'static/parciais/head.html' %}
+    <link rel="stylesheet" href="{% static 'func_css/cardapio_admin.css' %}">
+    <title>Administração do Cardápio</title>
+{% endblock %}
+
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Principal</button></a>
+    <a href="{% url 'pedidos' %}"><button class="buttonHeader">Pedidos</button></a>
+    <a href="{% url 'cardapio_admin' %}"><button class="buttonHeader">Admin. de Cardápio</button></a>   
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="novo_item">
+            <a href="{% url 'create_item' %}"><button class="button_novo_item"> Criar novo item </button></a>
+        </div>
+        {% for categoria in categorias %}
+        <div id='{{ categoria.nome_categoria }}' class="categoria">
+            <div class="categoria-title">
+                <h1>{{ categoria.nome_categoria }}</h1>
+                <hr>
+            </div>
+            {% for item in itens %}
+            {% if item.categoria == categoria %}
+            <div class="item">
+                {% if item.img %}
+                    <div class="item_img">
+                        <img src="{{ item.img.url }}" alt="Img">
+                    </div>
+                {% else %}
+                    <div class="item_img">
+                        <img src="../../media/default.jpg" alt="Img">
+                    </div>
+                {% endif %}
+                <div class="item_content">
+                    <h2>{{ item.nome_item }}</h1>
+                    <div class="item_content_details">
+                        <p class="descricao">{{ item.descricao }}</p>
+                        {% if item.ingredientes %}
+                            <p class="descricao">Ingredientes:{{ item.ingredientes }}</p>
+                        {% endif %}
+                        <p class="preco">R$ {{ item.preco_item }}</p>
+                    </div>
+                    <a href="{% url 'edit_item' item.id %}">Editar Item</a>
+                </div>
+            </div>  
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

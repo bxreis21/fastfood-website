@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load custom_tags static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'func_css/edit_item.css' %}">
+    <title>Item</title>
+{% endblock %}
+
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Principal</button></a>
+    <a href="{% url 'pedidos' %}"><button class="buttonHeader">Pedidos</button></a></li>
+    <a href="{% url 'cardapio_admin' %}"><button class="buttonHeader">Admin. de Cardápio</button></a> 
+{% endblock %}
+
+{% block body %}
+    <div class="content"> 
+
+        <div class="item">
+            {% include  'static/parciais/messages.html' %}
+            <div class="item-card">
+                <form action="{% url 'edit_item' item.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="item-img">
+                        {% if item.img %}
+                        <img src="{{ item.img.url }}" alt="Img">
+                        {% else %}
+                        <img src="../../media/default.jpg" alt="Img">
+                        {% endif %}
+                        <input type="file" name="img">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-info-1">
+                            <label>Nome</label>
+                            <input type="text" value="{{ item.nome_item }}" name="nome">
+                            <label>Preço</label>
+                            <input type="number" class="input_number" step="0.01" value="{{ item.preco_item|change_float }}" name="preco">
+                            <label>Valor Promocional</label>
+                            <input type="number" class="input_number" step="0.01" value="{{ item.valor_promocional|change_float }}" name="valor_promocional">
+                            <label>Categoria</label>
+                            <select name="categoria">
+                                {% for categoria in categorias %}
+                                <option value="{{ categoria }}">{{ categoria }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="item-info-2">
+                            <label>Ingredientes</label>
+                            <textarea name="ingredientes" cols="30" rows="10">{{ item.ingredientes }}</textarea>
+                            <label>Descrição</label>
+                            <textarea name="descricao" cols="30" rows="10">{{ item.descricao }}</textarea>
+                        </div>
+                        <div class="item-info-3">
+                            <label>Disponível</label>
+                            <input type="checkbox" {{ item.disponivel_item|checkbox }} name="disponivel">
+                            <label>Vitrine</label>
+                            <input type="checkbox" {{ item.vitrine|checkbox }} name="vitrine">
+                        </div>
+                        <div class="item-info-4">
+                            <button class="edit_button"><a href="{% url 'delete_item' item.id %}">Delete</a></button>
+                            <button class="edit_button" type="submit">Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

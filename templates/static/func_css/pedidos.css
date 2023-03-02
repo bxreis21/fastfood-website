@@ -1,0 +1,71 @@
+.content {
+    background-color: #000000;
+    font-family: 'Oswald', sans-serif;  
+    font-size: 20px;
+    margin: 0px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedidos-board {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+    border: solid 2px #ECCE39;
+    border-radius: 40px;
+    color: #ECCE39;
+    background-color: #111111;
+}
+
+.pedidos-board hr {
+    background-color: #ECCE39;
+    border: solid #ECCE39 1px;
+    width: 100%;
+}
+
+.pedidos-board h1 {
+    margin: 20px;
+}
+
+.pedidos-content {
+    display: grid;
+    margin: 20px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    gap: 30px;
+}
+
+.pedidos-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.2em;
+    padding: 30px;
+    border: solid 1px transparent;
+    border-radius: 20px;
+    margin: 10px 10px 20px 10px;
+    background-color: #00000088;
+    color: #ECCE39;
+}
+
+.pedidos-cards a {
+    text-decoration: underline;
+    color: #ECCE39;
+    margin: 0px 10px;
+}
+
+.pedidos-cards p {
+    margin: 10px;    
+}
+
+.pedidos-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+}

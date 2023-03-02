@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'cardapio_css/carrinho.css' %}">
+    <title>Carrinho de Compras</title>
+{% endblock %}
+
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a> 
+    <a href="{% url 'cardapio' %}"><button class="buttonHeader">Cardápio</button></a>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="carrinho-card">
+            <h1>Carrinho de Compras</h1>
+            <div class="carrinho-itens">
+                {% if not itens %}
+                <div class="carrinho-aviso">
+                    <p>Você não possui itens em seu carrinho de compras.</p>
+                    <a href="{% url 'cardapio' %}">Ir para o cardápio</a> 
+                </div>
+                {% else %}
+                {% for item in itens %}
+                <div class="carrinho-item">
+                    <p>{{ item.item.nome_item }}: {{ item.item.preco_item }} x {{ item.quantidade }} </p>  
+                    <a href="{% url 'edit_carrinho' item.item.id %}">Remover Item</a>
+                </div>  
+                {% endfor %}
+                <p>Total: {{ total }}</p>   
+                {% endif %}
+            </div>
+        {% if itens %}            
+            <a href="{% url 'enviar_pedido' %}">Realizar compra</a>    
+        {% endif %}
+    </div>
+    </div>    
+{% endblock %}

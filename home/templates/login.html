@@ -2,39 +2,47 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'login.css' %}">
+<link rel="stylesheet" href="{% static 'home_css/login.css' %}">
 {% endblock %}
 
 {% block title %} Grelha's | Login {% endblock %}
 
+{% block navlinks %}
+    <a href="{% url 'index' %}"><button class="buttonHeader">Página Inicial</button></a>
+    <a href="#galeria"><button class="buttonHeader">Galeria</button></a>
+    <a href="#footer"><button class="buttonHeader">Fale Conosco</button></a>
+    <a href="{% url 'cardapio' %}"><button class="buttonHeader">Faça seu pedido</button></a>
+{% endblock %}
+
 {% block body %}
 
-{% include  'static/parciais/messages.html' %}
+    <div class="login-body">
 
-{% if user.is_authenticated %}
+        {% if user.is_authenticated %}
+            <div id="logged" class="login-card">
+                <p>Você já está logado como: {{ request.user.first_name|title }}</p>
+                <a href="{% url 'index' %}"><button>Volte ao menu principal</button></a>
+            </div>
+        {% else %}
+            {% include  'static/parciais/messages.html' %}
+            <form action="{% url 'login' %}" method="post" >
+                {% csrf_token %}
+                <div class="login-card">
+                    <div class = "forms">
+                        <label>Email</label>
+                        <input type="text" name= 'nome'/>
+                    </div>
+                
+                    <div class = "forms">
+                        <label>Senha</label>
+                        <input  type="password" name= 'senha'/>
+                    </div>
+                    <button type="submit">Entrar</button>
+                    <p>Não possui uma conta? <a href="{% url 'register' %}">Crie aqui.</a></p>
+                </div>
+            </form>
 
-<p style = "color:white;">Você já está logado como: {{ request.user.username|title }}</p>
-<a href="{% url 'index' %}"><button class="buttonHeader">Volte ao menu principal</button></a>
+        {% endif %}
 
-{% else %}
-
-
-<form action="{% url 'login' %}" method="post" >
-    {% csrf_token %}
-    <div>
-        <div class = "forms">
-            <label>Usuário</label>
-            <input type="text" name= 'nome'/>
-        </div>
-    
-        <div class = "forms">
-            <label>Senha</label>
-            <input  type="password" name= 'senha'/>
-        </div>
-        <button type="submit">Entrar</button>
     </div>
-</form>
-
-
-{% endif %}
 {% endblock %}
