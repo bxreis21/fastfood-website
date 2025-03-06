@@ -1,14 +1,17 @@
-# FastFood-Website
-Esse site está sendo feito para fins de estudo de Django Web Framework, HTML e CSS.
+# FastFood Website
 
-Neste website terá um homepage e um cardápio que o usuário cliente poderá navegar e fazer pedidos para o restaurante. Nesses pedidos podem ser colocados todos os itens que o usuário quiser.
+Hey there!
 
-Para isso, o site tem um sistema de login e registro de contas com os dados do usuário. O usuário pode ter as condições de administrador, assim ele poderá criar itens para o cardápio, classificando-os em categorias, edita-los, receber os pedidos e classifica-los como "Pendente", "Enviado" e "Cancelado". Todas essas funções terão seus templates em HTML e estilizados com CSS, para que tudo isso que foi citado seja feita no próprio site (exceto conceder o status de administrador para um usuário, isso será feito na parte administrativa do Django.)
+This website is being developed for the purpose of studying the Django Web Framework, HTML, and CSS.
 
-Versões:
-Python - 3.10.4
-Django Web Framework - 4.0.3
-Django Crispy Forms - 1.14.0
-Django Axes - 5.40.1
-Pillow - 9.1.0
-Requests - 2.28.2
+The website will feature a homepage and a menu that customers can navigate to place orders at the restaurant. Users can add as many items as they wish to their orders.
+
+To facilitate this, the website includes a login and registration system for user accounts. Users can have administrator privileges, which will allow them to create menu items, categorize them, edit them, receive orders, and classify them as "Pending," "Sent," or "Canceled." All these functions will have HTML templates and be styled with CSS, so users can perform these tasks directly on the website (except for granting administrator status to a user, which will be done in Django's admin panel).
+
+Versions:
+Python: 3.10.4
+Django Web Framework: 4.0.3
+Django Crispy Forms: 1.14.0
+Django Axes: 5.40.1
+Pillow: 9.1.0
+Requests: 2.28.2
